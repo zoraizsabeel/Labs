@@ -4,13 +4,13 @@ class TreeNode:
         self.left = left
         self.right = right
 
-def invert_tree(root):
+def invertTree(root):
     if root and root.left and root.right:
         temp = root.left
         root.left = root.right
         root.right = temp
-        invert_tree(root.left)
-        invert_tree(root.right)
+        invertTree(root.left)
+        invertTree(root.right)
     return root
 
 if __name__ == "__main__":
@@ -22,7 +22,7 @@ if __name__ == "__main__":
     root.right.left = TreeNode(5)
     root.right.right = TreeNode(9)
 
-    holder = invert_tree(root)
+    holder = invertTree(root)
     print(holder.val)
     print(holder.left.val, holder.left.left.val, holder.left.right.val)
     print(holder.right.val, holder.right.left.val, holder.right.right.val)
