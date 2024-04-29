@@ -7,11 +7,14 @@ public class Lab2 {
         s = s.replaceAll(" ", "");
         int tSize = t.length();
         int sSize = s.length();
-        if(tSize == sSize && !t.equals(s))
+        if(tSize == sSize)
         {
             return true;
         }
-        return false;
+        else{
+            return false;
+        }
+        
     }
 
     public static Boolean anagram(String t, String s)
@@ -27,9 +30,16 @@ public class Lab2 {
             {
                 for(int j = 0; j < size; j++)
                 {
-                    if(t.charAt(i) == s.charAt(j))
+                    if(t.charAt(i) == s.charAt(j)){
+                        break;
+                    }
+                    else if (j == size-1 && t.charAt(i) != s.charAt(j))
+                    {
+                        return false;
+                    }
                 }
             }
+            return true;
         }
         return false;
 
@@ -47,7 +57,7 @@ public class Lab2 {
         s = scan.next();
 
         
-        anagram(t, s);
+        System.out.println(anagram(t, s));
     }
 
 
